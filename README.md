@@ -92,3 +92,12 @@ curl -X POST http://localhost:3000/api/auth/forgot -H "Content-Type: application
 ```
 curl -X POST http://localhost:3000/api/auth/reset -H "Content-Type: application/json" -d '{"token":"<TOKEN>","newPassword":"123456"}'
 ```
+
+## 📦 Deploy (GitHub Pages)
+
+O frontend pode ser publicado diretamente no GitHub Pages. Existe uma GitHub Action que compila `frontend` e publica o conteúdo de `frontend/dist` automaticamente sempre que você der push na branch `main`.
+
+- Live demo (após deploy): https://GabrielAlves0010.github.io/Habit-Tracker
+
+Se preferir usar Vercel/Netlify a integração também é rápida (basta apontar para a pasta `frontend` e usar `npm run build` como comando de build).
+
