@@ -27,12 +27,6 @@ jobs:
         working-directory: ./frontend
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: frontend-dist
-          path: frontend/dist
-
       - name: Deploy to GitHub Pages
         uses: actions/configure-pages@v3
 
