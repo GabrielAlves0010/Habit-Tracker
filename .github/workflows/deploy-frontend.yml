@@ -27,13 +27,20 @@ jobs:
         working-directory: ./frontend
         run: npm run build
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v3
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: frontend/dist
-
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v2
+      - name: Publish to gh-pages branch
+        env:
+          REPO: ${{ github.repository }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SHA: ${{ github.sha }}
+        run: |
+          set -e
+          rm -rf out || true
+          mkdir out
+          cp -a frontend/dist/. out/
+          cd out
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all
+          git commit -m "Deploy to gh-pages: ${SHA}"
+          git push --force "https://x-access-token:${TOKEN}@github.com/${REPO}.git" master:gh-pages
