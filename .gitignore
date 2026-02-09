@@ -1,0 +1,53 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Environment files (ignore anywhere)
+*.env
+*.env.*
+!*.env.example
+/.env
+
+# Backend & frontend envs
+backend/.env
+frontend/.env.local
+
+# Credentials and keys
+*.pem
+*.key
+*.p12
+id_rsa
+id_ecdsa
+.ssh/
+.aws/
+aws-credentials
+
+# Logs and runtime
+*.log
+logs/
+tmp/
+.cache/
+
+# Build outputs
+frontend/dist/
+build/
+dist/
+coverage/
+
+# Dependency directories
+node_modules/
+
+# OS & IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.DS_Store
+Thumbs.db
+
+# Misc
+.history/
+.parcel-cache/
+.next/
+

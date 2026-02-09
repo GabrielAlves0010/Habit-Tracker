@@ -1,0 +1,12 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "Running secret scan..."
+node ./scripts/check_secrets.js
+RESULT=$?
+if [ $RESULT -ne 0 ]; then
+  echo "Pre-commit check failed: secrets detected. Aborting commit."
+  exit 1
+fi
+
+echo "Pre-commit checks passed."
